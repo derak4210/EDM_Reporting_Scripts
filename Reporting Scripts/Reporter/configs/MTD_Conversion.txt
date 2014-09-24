@@ -1,0 +1,6 @@
+[REPORT CONFIG]
+SUBJECT:	MTD CONVERSION REPORT
+RECEPIENTS:	damir@excitedigitalmedia.com, evan@excitedigitalmedia.com, kulsuma@excitedigitalmedia.com, jeron@excitedigitalmedia.com
+
+[REPORT SQL] 
+QUERY: 		select adv as Advertiser, ps.pub_name as Publisher, ps.source_name as Source, SUBSTRING_INDEX(cd.source_id,'_',-1) as Sub_ID,count(*) as Conversions from datablocks_adcenter.conversion_details_v2 cd join datablocks_adcenter.publisher_sources ps on (ps.pub_id=substring_index(cd.source_id,'_',1) and ps.source_id=SUBSTRING_index(substring_index(cd.source_id,'_',2),'_',-1)) where type="Last_Click" and (YEAR(date) = YEAR(CURDATE()) and MONTH(date) = MONTH(DATE_SUB(CURDATE(), INTERVAL 7 DAY))) group by adv,ps.pub_name, ps.source_name, SUBSTRING_INDEX(cd.source_id,'_',-1) order by adv,count(*) desc;

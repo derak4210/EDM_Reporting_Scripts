@@ -1,0 +1,6 @@
+[REPORT CONFIG]
+SUBJECT:	7 DAY CONVERSION REPORT
+RECEPIENTS:	damir@excitedigitalmedia.com
+
+[REPORT SQL] 
+QUERY:	select adv as Advertiser,count(*) as Conversions from datablocks_adcenter.conversion_details_v2 where date>=DATE_SUB(curdate(), interval 7 day) and type="Last_Click" group by adv order by count(*) desc;

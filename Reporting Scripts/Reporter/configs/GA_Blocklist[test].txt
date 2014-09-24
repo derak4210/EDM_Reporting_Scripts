@@ -1,0 +1,7 @@
+[REPORT CONFIG]
+SUBJECT:	Google Analytics SubID Blocklist
+RECEPIENTS:	damir@excitedigitalmedia.com
+DATE:		yesterday
+
+[REPORT SQL]
+QUERY: select advertiser as Advertiser, pub_id as "Pub ID",source_id as "Source ID",sub_id as "Sub ID",pageviews as "PageViews",bounce_rate as "Bounce Rate",TIME_FORMAT(SEC_TO_TIME(avg_time_on_page),'%H:%i:%s')as "Avg Time on Page",pageviews_per_session as "Pages / Session" from third_party_data.google_analytics_ad_content_daily where date>=curdate()-1 and (bounce_rate>60 or avg_time_on_page < 140 or pageviews_per_session < 1.7 ) group by advertiser, pub_id,source_id,sub_id,bounce_rate,avg_time_on_page,pageviews_per_session order by advertiser,pageviews desc;

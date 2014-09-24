@@ -1,0 +1,6 @@
+[REPORT CONFIG]
+SUBJECT:	ROLLING MTD ADVERTISER REPORT BY PRODUCT
+RECEPIENTS:	kulsuma@excitedigitalmedia.com,chris@excitedigitalmedia.com,jeron@excitedigitalmedia.com,damir@excitedigitalmedia.com
+
+[REPORT SQL]
+QUERY: select date as Date, adv_name as Advertiser,product_name as Product,sum(searches) as Searches,sum(impressions) as Impressions,sum(clicks) as Clicks,sum(conversions) as Conversions,sum(spend) as Spend from datablocks_adcenter.daily_adv_product_summary where ( YEAR(date)=YEAR(CURDATE()) and MONTH(date)=MONTH(CURDATE()) )group by date, adv_name,product_name;

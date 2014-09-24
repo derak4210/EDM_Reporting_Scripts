@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>3e14724b-3e64-4bb5-8d92-b9ff5b5b4dfb</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>db_analytics.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>db_analytics</Name>
+    <RootNamespace>db_analytics</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="db_analytics.py" />
+    <Compile Include="db_upload.py" />
+    <Compile Include="download_levels_stats.py" />
+    <Compile Include="download_meta.py" />
+    <Compile Include="download_meta_data.py" />
+    <Compile Include="download_module.py" />
+    <Compile Include="mail_module.py" />
+    <Compile Include="OrderedSet.py" />
+    <Compile Include="publisher_sources.py" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
